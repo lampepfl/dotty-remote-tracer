@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+GET   /data/projects/                                               controllers.RemoteTracingController.projects
+
+GET   /data/projects/:p/clients/                                    controllers.RemoteTracingController.clients(p)
+
+GET   /data/projects/:p/clients/:c/sessions/                        controllers.RemoteTracingController.sessionData(p, c)
+
+GET   /data/projects/:p/clients/:c/sessions/:s/lsp.log              controllers.RemoteTracingController.lspLog(p, c, s, format: Option[String])
+
+GET   /data/projects/:p/clients/:c/sessions/:s/workspace-dump.zip   controllers.RemoteTracingController.workspaceDump(p, c, s)
+
+PUT   /upload/workspace-dump.zip                                    controllers.RemoteTracingController.uploadWorkspaceDump(project, client, session)
+
+GET   /upload/lsp.log                                               controllers.RemoteTracingController.socket

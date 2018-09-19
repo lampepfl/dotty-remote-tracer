@@ -1,0 +1,8 @@
+@(title: String, message: String, children: List[String])
+
+@main(title) {
+    <p>@message</p>
+    @for(child <- children) {
+        <a href="./@child">@child</a> <br>
+    }
+}
